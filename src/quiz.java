@@ -54,15 +54,15 @@ public class quiz  extends JFrame{
 		score.setBackground(Color.pink);
 		
 		
-		startButton.setBounds(100,160,200,40);
-		question.setBounds(50,50,300,50);
-		option1.setBounds(50, 120, 140, 50);
-		option2.setBounds(210, 120, 140, 50);
-		option3.setBounds(50, 180, 140, 50);
-		option4.setBounds(210, 180, 140, 50);
-		submit.setBounds(150, 270, 100, 40);
-		proceed.setBounds(100,320 , 200, 40);
-		score.setBounds(10,320,50,40);
+		startButton.setBounds(200,250,200,60);
+		question.setBounds(100,100,400,70);
+		option1.setBounds(100, 190, 170, 70);
+		option2.setBounds(330, 190, 170, 70);
+		option3.setBounds(100, 280, 170, 70);
+		option4.setBounds(330, 280, 170, 70);
+		submit.setBounds(250, 400, 100, 50);
+		proceed.setBounds(200,500 , 200, 50);
+		score.setBounds(10,500,50,40);
 		
 		question.setVisible(false);
 		option1.setVisible(false);
@@ -92,7 +92,7 @@ public class quiz  extends JFrame{
 		
 		setLayout(null);
 		setVisible(true);
-		setSize(400, 400);
+		setSize(600, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		startButton.addActionListener(new ActionListener() {
@@ -162,37 +162,41 @@ public class quiz  extends JFrame{
 					
 					if(p == 0) {
 						option1.setBackground(Color.BLUE);
-						proceed.setText("Correct proceed here");
+						proceed.setText("Correct, proceed here");
 						corr++;
 					}else {
 						option1.setBackground(Color.RED);
+						proceed.setText("Incorrect, proceed here");
 					}
 					
 				}else if(option2.isSelected()) {
 					if(p == 1) {
 						option2.setBackground(Color.BLUE);
-						proceed.setText("Correct proceed here");
+						proceed.setText("Correct, proceed here");
 						corr++;
 					}else {
 						option2.setBackground(Color.RED);
+						proceed.setText("Incorrect, proceed here");
 					}
 					
 				}else if(option3.isSelected()) {
 					if(p == 2) {
 						option3.setBackground(Color.BLUE);
-						proceed.setText("Correct proceed here");
+						proceed.setText("Correct, proceed here");
 						corr++;
 					}else {
 						option3.setBackground(Color.RED);
+						proceed.setText("Incorrect, proceed here");
 					}
 												
 				}else if(option4.isSelected()) {
 					if(p == 3) {
 						option4.setBackground(Color.BLUE);
-						proceed.setText("Correct proceed here");
+						proceed.setText("Correct, proceed here");
 						corr++;
 					}else {
 						option4.setBackground(Color.RED);
+						proceed.setText("Incorrect, proceed here");
 					}							
 					
 				}
