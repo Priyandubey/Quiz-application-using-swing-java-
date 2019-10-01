@@ -99,12 +99,12 @@ public class quiz  extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				 randomNum = ThreadLocalRandom.current().nextInt(0, 10);
+				 randomNum = ThreadLocalRandom.current().nextInt(0, 17);
 				 p = ThreadLocalRandom.current().nextInt(0, 4);
-				 boolean[] tak = new boolean[10] ;
+				 boolean[] tak = new boolean[17] ;
 				for(boolean s : tak) s = false;
 				int min,max;
-				if(Math.abs(randomNum - 9) > randomNum + 1) {
+				if(Math.abs(randomNum - 16) > randomNum + 1) {
 					min = randomNum + 1;
 					max = 10;
 				}
@@ -231,9 +231,9 @@ public class quiz  extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				proceed.setVisible(false);
 				submit.setVisible(true);
-				randomNum = ThreadLocalRandom.current().nextInt(0, 10);
+				randomNum = ThreadLocalRandom.current().nextInt(0, 17);
 				 p = ThreadLocalRandom.current().nextInt(0, 4);
-				 boolean[] tak = new boolean[10] ;
+				 boolean[] tak = new boolean[17] ;
 				 for(boolean s : tak) s = false;
 				 question.setBackground(Color.orange);
 					option1.setBackground(Color.green);
@@ -244,7 +244,7 @@ public class quiz  extends JFrame{
 					proceed.setBackground(Color.white);
 					startButton.setBackground(Color.red);
 				int min,max;
-				if(Math.abs(randomNum - 9) > randomNum) {
+				if(Math.abs(randomNum - 16) > randomNum + 1) {
 					min = randomNum + 1;
 					max = 10;
 				}
@@ -304,7 +304,6 @@ public class quiz  extends JFrame{
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		list = new ArrayList();
 		list.add(new Question("Which of the following is the IDE for Java ?", "Eclipse"));
 		list.add(new Question("what type of language is Java ?", "OOP"));
@@ -312,13 +311,20 @@ public class quiz  extends JFrame{
 		list.add(new Question("what type of language is C++ ?", "OOP & POP"));
 		list.add(new Question("what type of data structure is stack ?", "LIFO"));
 		list.add(new Question("what type of data structure is queue ?", "FIFO"));
-		list.add(new Question("Which company acquired Java from Sun Microsystem ?", "Oracle"));
 		list.add(new Question("Package which contain Button class ?", "awt"));
 		list.add(new Question("Package which contain String class ?", "lang"));
 		list.add(new Question("Package which contain ArrayList class ?", "util"));
+		list.add(new Question("Keyword used to create a sub-class of a super class ?", "extends"));
+		list.add(new Question("Keyword used to inherit methods using interface in a class ?", "implements"));
+		list.add(new Question("Fastest sorting Algorithm ?", "QuickSort"));
+		list.add(new Question("Class used to take input from user ?", "Scanner"));
+		list.add(new Question("A non-Liner Data structure ?", "Tree"));
+		list.add(new Question("A Tree with all node having atmost 2 children ?", "Binary Tree"));
+		list.add(new Question("Keyword used to declare a variable which can be used any where ?", "public"));
+		list.add(new Question("Keyword used to declare a variable which can be used only in a class ?", "private"));
+	
 		
 		quiz q = new quiz();
-		
 		
 	}
 
