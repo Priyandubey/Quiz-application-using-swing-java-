@@ -101,8 +101,10 @@ public class quiz  extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				 randomNum = ThreadLocalRandom.current().nextInt(0, 10);
 				 p = ThreadLocalRandom.current().nextInt(0, 4);
+				 boolean[] tak = new boolean[10] ;
+				for(boolean s : tak) s = false;
 				int min,max;
-				if(Math.abs(randomNum - 9) > randomNum) {
+				if(Math.abs(randomNum - 9) > randomNum + 1) {
 					min = randomNum + 1;
 					max = 10;
 				}
@@ -113,26 +115,43 @@ public class quiz  extends JFrame{
 				question.setText(list.get(randomNum).prob);
 				int a[] = {0,0,0,0};
 				a[p] = 1;
+				tak[randomNum] = true;
 				if(a[0] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option1.setText(list.get(c).ans);
 				}else {
 					option1.setText(list.get(randomNum).ans);
 				}
 				if(a[1] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option2.setText(list.get(c).ans);
 				}else {
 					option2.setText(list.get(randomNum).ans);
 				}
 				if(a[2] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option3.setText(list.get(c).ans);
 				}else {
 					option3.setText(list.get(randomNum).ans);
 				}
 				if(a[3] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option4.setText(list.get(c).ans);
 				}else {
 					option4.setText(list.get(randomNum).ans);
@@ -214,6 +233,8 @@ public class quiz  extends JFrame{
 				submit.setVisible(true);
 				randomNum = ThreadLocalRandom.current().nextInt(0, 10);
 				 p = ThreadLocalRandom.current().nextInt(0, 4);
+				 boolean[] tak = new boolean[10] ;
+				 for(boolean s : tak) s = false;
 				 question.setBackground(Color.orange);
 					option1.setBackground(Color.green);
 					option2.setBackground(Color.green);
@@ -236,24 +257,40 @@ public class quiz  extends JFrame{
 				a[p] = 1;
 				if(a[0] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option1.setText(list.get(c).ans);
 				}else {
 					option1.setText(list.get(randomNum).ans);
 				}
 				if(a[1] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option2.setText(list.get(c).ans);
 				}else {
 					option2.setText(list.get(randomNum).ans);
 				}
 				if(a[2] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option3.setText(list.get(c).ans);
 				}else {
 					option3.setText(list.get(randomNum).ans);
 				}
 				if(a[3] == 0) {
 					int c = ThreadLocalRandom.current().nextInt(min, max);
+					while(tak[c]==true) {
+						c = ThreadLocalRandom.current().nextInt(min, max);
+					}
+					tak[c] = true;
 					option4.setText(list.get(c).ans);
 				}else {
 					option4.setText(list.get(randomNum).ans);
