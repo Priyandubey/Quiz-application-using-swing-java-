@@ -1,4 +1,4 @@
-//Author : Priyanshu Dubey
+
 //Platform : Eclipse
 
 import java.awt.Color;
