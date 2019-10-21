@@ -4,6 +4,8 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -21,11 +23,14 @@ public class quiz  extends JFrame{
 	int randomNum;
 	JButton startButton ;
 	JButton submit;
+	JButton play;
 	JTextArea question;
+	JTextArea startName;
 	JRadioButton option1;
 	JRadioButton option2;
 	JRadioButton option3;
 	JRadioButton option4;
+	JLabel name;
 	static ArrayList< Question > list;
 	JButton proceed;
 	JLabel score;
@@ -33,14 +38,17 @@ public class quiz  extends JFrame{
 	
 	
 	quiz(){
-		startButton = new JButton("Click To Start Quiz");
+		startButton = new JButton("Congrats you have won");
 		submit = new JButton("Submit");
-		question = new JTextArea("We Belong to the species of \n the 21st century");
+		question = new JTextArea("Sample Question");
 		option1 = new JRadioButton("Option 1");
 		option2 = new JRadioButton("Option 2");
 		option3 = new JRadioButton("Option 3");
 		option4 = new JRadioButton("Option 4");
 		proceed = new JButton("Incorrect, proceed here");
+		startName = new JTextArea("Enter Your Username");
+		name = new JLabel("Sample");
+		play = new JButton("Play");
 		score = new JLabel("0 / 0");
 				
 		question.setBackground(Color.orange);
@@ -52,6 +60,8 @@ public class quiz  extends JFrame{
 		proceed.setBackground(Color.white);
 		startButton.setBackground(Color.red);
 		score.setBackground(Color.pink);
+		play.setBackground(Color.GREEN);
+		startName.setBackground(Color.MAGENTA);
 		
 		
 		startButton.setBounds(200,250,200,60);
@@ -63,6 +73,9 @@ public class quiz  extends JFrame{
 		submit.setBounds(250, 400, 100, 50);
 		proceed.setBounds(200,500 , 200, 50);
 		score.setBounds(10,500,50,40);
+		startName.setBounds(200, 200, 200, 60);
+		play.setBounds(250,280,100, 40);
+		name.setBounds(250, 10, 170, 40);
 		
 		question.setVisible(false);
 		option1.setVisible(false);
@@ -72,7 +85,9 @@ public class quiz  extends JFrame{
 		submit.setVisible(false);
 		proceed.setVisible(false);
 		score.setVisible(false);
-		
+		startName.setVisible(false);
+		play.setVisible(false);
+		name.setVisible(false);
 		
 		add(startButton);
 		add(question);
@@ -83,6 +98,11 @@ public class quiz  extends JFrame{
 		add(submit);
 		add(proceed);
 		add(score);
+		add(startName);
+		add(play);
+		add(name);
+		
+		
 		
 		ButtonGroup group = new ButtonGroup();
 		group.add(option1);
@@ -99,7 +119,24 @@ public class quiz  extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				 randomNum = ThreadLocalRandom.current().nextInt(0, 17);
+				
+				startButton.setVisible(false);
+				play.setVisible(true);
+				startName.setVisible(true);
+				
+				
+			}
+		});
+		play.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				play.setVisible(false);
+				name.setText("Username:- " + startName.getText());
+				startName.setVisible(false);
+				name.setVisible(true);
+				randomNum = ThreadLocalRandom.current().nextInt(0, 17);
 				 p = ThreadLocalRandom.current().nextInt(0, 4);
 				 boolean[] tak = new boolean[17] ;
 				for(boolean s : tak) s = false;
@@ -167,13 +204,17 @@ public class quiz  extends JFrame{
 				submit.setVisible(true);
 				score.setVisible(true);
 				
+				
 			}
 		});
+		
 		submit.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//TODO
+		
+				
 				proceed.setVisible(true);
 				submit.setVisible(false);
 				total++;
@@ -220,7 +261,30 @@ public class quiz  extends JFrame{
 					
 				}
 				
+				if(total == 10) {
+					String l = "You have won";
+					if(corr < 4) {
+						l = "You have lost";
+					}
+					startButton.setVisible(false);
+					question.setVisible(false);
+					option1.setVisible(false);
+					option2.setVisible(false);
+					option3.setVisible(false);
+					option4.setVisible(false);
+					submit.setVisible(false);
+					score.setVisible(false);
+				}
+				
 				score.setText(corr + " / " + total);
+				
+				
+				if(total == 10) {
+					String l = "you have passed";
+					if(corr < 5) {
+						l = "you have failed"; 
+					}
+				}
 				
 				
 			}
